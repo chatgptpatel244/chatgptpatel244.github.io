@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Easy Loan Today</title>
+  <meta name="fo-verify" content="602fcd21-2241-4246-bc58-af87e76b7e81" />
   <style>
     * {
       box-sizing: border-box;
@@ -64,8 +65,6 @@
       border-radius: 6px;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
       z-index: 99;
-      
-
     }
 
     .mobile-menu a {
@@ -349,11 +348,9 @@
     <button class="menu-icon" onclick="toggleMenu()">☰</button>
     <div class="mobile-menu" id="mobileMenu">
       <a href="#">Home</a>
-      
-      <a href="#" onclick="showHowItWorks()">How It Works</a>
-      <a href="#" onclick="showPolicy()">Policy</a>
-      <a href="#" onclick="showTerms()">Terms</a>
-
+      <a href="#">Apply</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
     </div>
   </div>
 
@@ -372,29 +369,28 @@
 
     <div class="form-container">
       <h2>Get Started Today!</h2>
-     
-        <form action="https://docs.google.com/forms/d/e/1FAIpQLSdlzG2S-19me_cYFvpKNZf7ucqb-K3JsDXW3LgvRW8p8KM1_w/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
-  <div class="form-row">
-    <input name="entry.1586295731" type="text" placeholder="First Name" required>
-    <input name="entry.1841310522" type="text" placeholder="Last Name" required>
-  </div>
-  <input name="entry.1896116028" type="text" placeholder="Address" required>
-  <div class="form-row">
-    <input name="entry.1913501757" type="text" placeholder="Home Phone" required>
-    <input name="entry.1779527637" type="text" placeholder="Zip Code" required>
-  </div>
-  <input name="entry.1514338401" type="email" placeholder="Email" required>
+      <form>
+        <div class="form-row">
+          <input type="text" placeholder="First Name" required>
+          <input type="text" placeholder="Last Name" required>
+        </div>
+        <input type="text" placeholder="Address" required>
+        <div class="form-row">
+          <input type="text" placeholder="Home Phone" required>
+          <input type="text" placeholder="Zip Code" required>
+        </div>
+        <input type="email" placeholder="Email" required>
 
-  <button type="submit" class="submit-btn">CLICK FOR CASH</button>
-</form>
+        <div class="checkbox">
+          <input type="checkbox" required>
+          You acknowledge you have read & agree to the terms of our
+          <a href="#">Privacy Policy</a>,
+          <a href="#">Terms & Conditions of Use</a>, and Marketing Practices.
+          I understand that by submitting my information, I may be contacted by telephone by one lender.
+        </div>
 
-<!-- This keeps submission silent (no page reload) -->
-<iframe name="hidden_iframe" style="display:none;"></iframe>
-
-     
-  
-
-
+        <button type="submit" class="submit-btn">CLICK FOR CASH</button>
+      </form>
     </div>
   </div>
 
@@ -416,30 +412,6 @@
         menu.style.display = "none";
       }
     });
-    function showHowItWorks() {
-  document.getElementById("howItWorksModal").style.display = "block";
-}
-
-function hideHowItWorks() {
-  document.getElementById("howItWorksModal").style.display = "none";
-}
-
- function showPolicy() {
-  document.getElementById("privacyModal").style.display = "block";
-}
-
-function hidePolicy() {
-  document.getElementById("privacyModal").style.display = "none";
-}
-function showTerms() {
-  document.getElementById("termsModal").style.display = "block";
-}
-
-function hideTerms() {
-  document.getElementById("termsModal").style.display = "none";
-}
-
-
   </script>
 <section class="info-section">
   <h2>How Online Cash Loans Work</h2>
@@ -497,50 +469,6 @@ function hideTerms() {
     </p>
   </div>
 </section>
-<div id="howItWorksModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.7); z-index:9999; overflow:auto;">
-  <div style="background:#fff; margin:50px auto; padding:30px; max-width:700px; border-radius:10px; box-shadow:0 0 20px rgba(0,0,0,0.3);">
-    <h2 style="text-align:center;">How It Works!!</h2>
-    <p>fundmecredit.com is not a lender - it does not make short term cash loans or credit decisions...</p>
-    <ul>
-      <li>18 years of age or older</li>
-      <li>U.S. Citizenship</li>
-      <li>Valid checking or savings account with direct deposit</li>
-      <li>Regular income of at least $1,000 per month</li>
-      <li>Not on active duty in the military (or related restrictions)</li>
-      <li>Review FAQs for credit and late payment info</li>
-    </ul>
-    <div style="text-align:center; margin-top:20px;">
-      <button onclick="hideHowItWorks()" style="padding:10px 20px; background:#4aa8e2; color:white; border:none; border-radius:6px;">Close</button>
-    </div>
-  </div>
-</div>
-<div id="privacyModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.7); z-index:9999; overflow:auto;">
-  <div style="background:#fff; margin:50px auto; padding:30px; max-width:700px; border-radius:10px; box-shadow:0 0 20px rgba(0,0,0,0.3);">
-    <h2 style="text-align:center;">Your Privacy Rights</h2>
-    <p>fundmecredit.com (\"Company\") created this privacy policy to explain how we use personal information...</p>
-    <p>We understand that you value your privacy and the right to control how your personal information is collected and used...</p>
-    <p>This website is not intended for anyone under the age of eighteen (18)...</p>
-    <h3>1. Types of Information We Collect</h3>
-    <p>Company collects information about you by and through your access to and use of this Website...</p>
-    <div style="text-align:center; margin-top:20px;">
-      <button onclick="hidePolicy()" style="padding:10px 20px; background:#4aa8e2; color:white; border:none; border-radius:6px;">Close</button>
-    </div>
-  </div>
-</div>
-<div id="termsModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.7); z-index:9999; overflow:auto;">
-  <div style="background:#fff; margin:50px auto; padding:30px; max-width:700px; border-radius:10px; box-shadow:0 0 20px rgba(0,0,0,0.3);">
-    <h2 style="text-align:center;">Terms and Conditions</h2>
-    <p><strong>Last Updated 8/15/2014;</strong></p>
-    <p>Welcome to fundmecredit.com. These Terms & Conditions of Use govern your use of this website and its services. By using this site, you agree that you are at least 18 years old and accept all terms outlined herein.</p>
-    <p><strong>Company's Services:</strong> Company is not a lender or agent, and does not make credit decisions. It connects users with third-party lenders and receives advertising compensation.</p>
-    <p>This site may not meet your specific needs. Always consult a financial professional before accepting any loan offers.</p>
-    <div style="text-align:center; margin-top:20px;">
-      <button onclick="hideTerms()" style="padding:10px 20px; background:#4aa8e2; color:white; border:none; border-radius:6px;">Close</button>
-    </div>
-  </div>
-</div>
 
-
-    
 </body>
 </html>
