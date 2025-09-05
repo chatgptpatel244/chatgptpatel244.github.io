@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eazy Loan Today</title>
-  <meta name="fo-verify" content="161a12c6-600f-4c35-b54c-dd50b2c10662" />
+  <title>Easy Loan Today</title>
+  <meta name="fo-verify" content="602fcd21-2241-4246-bc58-af87e76b7e81" />
   <style>
     * {
       box-sizing: border-box;
@@ -333,8 +333,33 @@
   margin-top: 40px;
   text-align: center;
   font-size: 14px;
-  color: #cfeeff;
+  color: white;
 }
+/* Row centers its content */
+.btn-row{
+  display: flex;
+  justify-content: center;
+}
+
+/* Link styled like a button */
+.cash-btn{
+  display: inline-block;       /* keeps it sized to its content */
+  background: #3498db;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background .3s ease;
+  float: none;                 /* override any floats */
+}
+
+.cash-btn:hover{ background:white; }
+.cash-btn{ max-width: 320px; width: 100%; text-align: center; }
+
+
 
 
   </style>
@@ -369,28 +394,45 @@
 
     <div class="form-container">
       <h2>Get Started Today!</h2>
-      <form>
-        <div class="form-row">
-          <input type="text" placeholder="First Name" required>
-          <input type="text" placeholder="Last Name" required>
-        </div>
-        <input type="text" placeholder="Address" required>
-        <div class="form-row">
-          <input type="text" placeholder="Home Phone" required>
-          <input type="text" placeholder="Zip Code" required>
-        </div>
-        <input type="email" placeholder="Email" required>
+      
+  <!-- ✅ The form starts here -->
+  <form method="POST" action="/submit">
 
-        <div class="checkbox">
-          <input type="checkbox" required>
-          You acknowledge you have read & agree to the terms of our
-          <a href="#">Privacy Policy</a>,
-          <a href="#">Terms & Conditions of Use</a>, and Marketing Practices.
-          I understand that by submitting my information, I may be contacted by telephone by one lender.
-        </div>
+    <div class="form-row">
+      <input type="text" name="firstName" placeholder="First Name" required>
+      <input type="text" name="lastName" placeholder="Last Name" required>
+    </div>
 
-        <button type="submit" class="submit-btn">CLICK FOR CASH</button>
-      </form>
+    <input type="text" name="address" placeholder="Address" required>
+
+    <div class="form-row">
+      <input type="text" name="homePhone" placeholder="Home Phone" required>
+      <input type="text" name="zipCode" placeholder="Zip Code" required>
+    </div>
+
+    <input type="email" name="email" placeholder="Email" required>
+
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" name="consent" required>
+        You acknowledge you have read & agree to the terms of our
+        <a href="#">Privacy Policy</a>,
+        <a href="#">Terms & Conditions of Use</a>, and Marketing Practices.
+      </label>
+    
+
+    <div class="btn-row">
+  <a href="Second.html" class="cash-btn">CLICK FOR CASH</a>
+</div>
+
+
+
+  </form>
+  <!-- ✅ The form ends here -->
+</div>
+
+
+      
     </div>
   </div>
 
@@ -462,7 +504,7 @@
     </p>
 
     <p class="copyright">
-      © 2025 EazyLoanToady ALL Rights Reserved. 
+      © 2017 fundmecredit.com ALL Rights Reserved. 
       <a href="#">Privacy Policy</a> | 
       <a href="#">Terms of Service</a> | 
       <a href="#">Unsubscribe</a>
@@ -472,6 +514,3 @@
 
 </body>
 </html>
-
-
-
