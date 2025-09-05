@@ -421,9 +421,10 @@
       </label>
     
 
-    <div class="btn-row">
-  <a href="Second.html" class="cash-btn">CLICK FOR CASH</a>
+<div class="btn-row">
+  <button type="submit" class="cash-btn">CLICK FOR CASH</button>
 </div>
+
 
 
 
@@ -454,6 +455,21 @@
         menu.style.display = "none";
       }
     });
+    
+  document.querySelector("form").addEventListener("submit", function(event) {
+    event.preventDefault(); // stop normal form action
+
+    // Check if form is valid
+    if (this.checkValidity()) {
+      // ✅ Redirect only if form is valid
+      window.location.href = "Second.html";
+    } else {
+      // ❌ Show validation errors
+      this.reportValidity();
+    }
+  });
+
+
   </script>
 <section class="info-section">
   <h2>How Online Cash Loans Work</h2>
