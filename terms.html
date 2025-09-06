@@ -38,38 +38,7 @@
       color: #003366;
     }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      margin: 0;
-      padding: 0;
-      flex-wrap: wrap;
-      text-align: center;
-    }
-
-    nav ul li {
-      margin: 5px 10px;
-      text-align: center;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      text-align: center;
-    }
-    nav ul {
-  display: flex;
-  list-style: none;
-}
-nav ul li {
-  margin-left: 20px;
-}
-nav ul li a {
-  text-decoration: none;
-  color: #2c3e50;
-  font-weight: 500;
-}
+    
 
 
     /* Page Container */
@@ -114,39 +83,61 @@ nav ul li a {
       
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-        
-      }
+    header {
+  display: flex;
+  justify-content: space-between; /* logo on left, nav on right */
+  align-items: center;
+  padding: 15px 20px;
+  background: white;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-      nav ul {
-        flex-direction: column;
-        width: 100%;
-        
-      }
+nav {
+  display: flex;
+  align-items: center;
+}
 
-      nav ul li {
-        margin: 8px 0;
-       
-      }
+nav ul {
+  display: flex;
+  list-style: none;
+}
 
-      .container {
-        margin: 15px;
-        padding: 15px;
-        
-      }
-    }
-    @media (max-width: 768px) {
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-left: 20px; /* keeps space between menu and links */
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #2c3e50;
+  margin: 4px 0;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
   nav ul {
     display: none;
     flex-direction: column;
     background: white;
     position: absolute;
     top: 60px;
-    right: 20px;
+    right: 20px; /* ✅ keeps dropdown aligned to right */
     width: 200px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     border-radius: 8px;
@@ -161,9 +152,7 @@ nav ul li a {
   }
   .menu-toggle {
     display: flex;
-    
   }
-  
 }
 
   </style>
@@ -267,6 +256,7 @@ You have the right to receive any document in non-electronic form and to withdra
 
 </body>
 </html>
+
 
 
 
