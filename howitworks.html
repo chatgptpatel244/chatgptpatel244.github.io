@@ -5,34 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How It Works</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    /* Reset */
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
       background: #f4f4f9;
+      line-height: 1.6;
     }
 
-    /* Header */
-    header {
+    /* Navbar */
+    nav {
       background: #fff;
-      border-bottom: 1px solid #ddd;
-      padding: 15px 30px;
+      padding: 15px 20px;
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-between; /* logo left, menu right */
       align-items: center;
+      box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    .logo {
-  font-size: 28px;
-  font-weight: bold;
-}
 
-.logo .green {
-  color:#4aa8e2;   /* green */
-}
+    .logo span:first-child {
+      font-size: 22px;
+      font-weight: bold;
+      color: #4aa8e2;
+    }
 
-.logo .blue {
-  color: #003366;   /* blue */
-}
+    .logo span:last-child {
+      font-size: 22px;
+      font-weight: bold;
+      color: #003366;
+    }
 
     nav ul {
       list-style: none;
@@ -40,19 +49,64 @@
       margin: 0;
       padding: 0;
     }
+
     nav ul li {
       margin-left: 20px;
     }
+
     nav ul li a {
       text-decoration: none;
       color: #2c3e50;
       font-weight: 500;
     }
+
     nav ul li a.active {
       color: #3498db;
     }
 
-    /* Main content */
+    /* Hamburger */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      margin-left: 20px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: #2c3e50;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: white;
+        position: absolute;
+        top: 60px;
+        right: 20px; /* dropdown aligned right */
+        width: 200px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        border-radius: 8px;
+        padding: 10px 0;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      nav ul li {
+        margin: 10px 0;
+        text-align: center;
+      }
+      .menu-toggle {
+        display: flex; /* show hamburger on mobile */
+      }
+    }
+
+    /* Page Container */
     .container {
       max-width: 900px;
       margin: 30px auto;
@@ -61,23 +115,28 @@
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
+
     .container h2 {
       text-align: center;
       margin-bottom: 20px;
     }
+
     .container p {
       margin-bottom: 15px;
       line-height: 1.6;
       color: #333;
     }
+
     .container ul {
       list-style: none;
       padding: 0;
     }
+
     .container ul li {
       margin-bottom: 8px;
       color: #333;
     }
+
     .container ul li::before {
       content: "» ";
       color: #3498db;
@@ -91,14 +150,17 @@
       font-size: 15px;
       line-height: 1.7;
     }
+
     footer a {
       color: #d1ecf9;
       text-decoration: underline;
     }
+
     footer .disclosure-content {
       max-width: 1000px;
       margin: 0 auto;
     }
+
     footer .copyright {
       margin-top: 30px;
       text-align: center;
@@ -114,8 +176,7 @@
     <div class="logo">
   <span class="green">Eazy Loan</span> <span class="blue">Today</span>
 </div>
-
-
+    
       <nav>
   <ul>
     <li><a href="second.html">Home</a></li>
@@ -124,6 +185,11 @@
     <li><a href="terms.html">Terms</a></li>
   </ul>
 </nav>
+    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('show')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
     </nav>
   </header>
@@ -166,5 +232,6 @@
 
 </body>
 </html>
+
 
 
