@@ -5,13 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fund Me Credit - Terms & Conditions</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    /* Reset */
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
       background-color: #f8f9fa;
       line-height: 1.6;
-      
     }
 
     /* Navbar */
@@ -19,14 +23,15 @@
       background: #fff;
       padding: 15px 20px;
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-between; /* logo left, menu right */
       align-items: center;
       box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
-      flex-wrap: wrap;
-      
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-     .logo span:first-child {
+    .logo span:first-child {
       font-size: 22px;
       font-weight: bold;
       color: #4aa8e2;
@@ -38,8 +43,68 @@
       color: #003366;
     }
 
-    
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
 
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    nav ul li a.active {
+      color: #3498db;
+    }
+
+    /* Hamburger */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      margin-left: 20px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: #2c3e50;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: white;
+        position: absolute;
+        top: 60px;
+        right: 20px; /* dropdown aligned right */
+        width: 200px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        border-radius: 8px;
+        padding: 10px 0;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      nav ul li {
+        margin: 10px 0;
+        text-align: center;
+      }
+      .menu-toggle {
+        display: flex; /* show hamburger on mobile */
+      }
+    }
 
     /* Page Container */
     .container {
@@ -49,7 +114,6 @@
       padding: 25px;
       border-radius: 10px;
       box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
-      
     }
 
     h1, h2 {
@@ -57,15 +121,9 @@
       margin-bottom: 20px;
     }
 
-    h2 {
-      text-align: center;
-      margin-top: 30px;
-    }
-
     p {
       margin-bottom: 15px;
       text-align: justify;
-      text-align: center;
     }
 
     /* Footer */
@@ -74,89 +132,14 @@
       color: white;
       padding: 20px;
       font-size: 14px;
-      
     }
 
     footer a {
       color: #fff;
       text-decoration: underline;
-      
     }
-
-    header {
-  display: flex;
-  justify-content: space-between; /* logo on left, nav on right */
-  align-items: center;
-  padding: 15px 20px;
-  background: white;
-  border-bottom: 1px solid #ddd;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-nav {
-  display: flex;
-  align-items: center;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-}
-
-nav ul li {
-  margin-left: 20px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #2c3e50;
-  font-weight: 500;
-}
-
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  margin-left: 20px; /* keeps space between menu and links */
-}
-
-.menu-toggle span {
-  width: 25px;
-  height: 3px;
-  background: #2c3e50;
-  margin: 4px 0;
-  border-radius: 2px;
-}
-
-@media (max-width: 768px) {
-  nav ul {
-    display: none;
-    flex-direction: column;
-    background: white;
-    position: absolute;
-    top: 60px;
-    right: 20px; /* ✅ keeps dropdown aligned to right */
-    width: 200px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    border-radius: 8px;
-    padding: 10px 0;
-  }
-  nav ul.show {
-    display: flex;
-  }
-  nav ul li {
-    margin: 10px 0;
-    text-align: center;
-  }
-  .menu-toggle {
-    display: flex;
-  }
-}
-
   </style>
-</head>
+</head
 <body>
 
   <!-- Navbar -->
@@ -256,6 +239,7 @@ You have the right to receive any document in non-electronic form and to withdra
 
 </body>
 </html>
+
 
 
 
