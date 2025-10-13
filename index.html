@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Easy Loan Today</title>
+  <meta name="fo-verify" content="602fcd21-2241-4246-bc58-af87e76b7e81" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #1e5d80;
+    }
+
+    .top-bar {
+      background-color: #fff;
+      padding: 16px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+      height: 60px;
+    }
+
+    .logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 28px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .logo span:first-child {
+      color: #4aa8e2;
+    }
+
+    .logo span:last-child {
+      color: #003366;
+    }
+
+    .menu-icon {
+      font-size: 26px;
+      cursor: pointer;
+      background: #333;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 5px;
+      border: none;
+      z-index: 2;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background-color: white;
+      position: absolute;
+      top: 60px;
+      right: 15px;
+      width: 180px;
+      border-radius: 6px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 99;
+    }
+
+    .mobile-menu a {
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #333;
+      border-bottom: 1px solid #eee;
+    }
+
+    .mobile-menu a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .main-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 40px 15px;
+      background-color: #063955;
+    }
+
+    .loan-info {
+      background-color: #04324c;
+      color: white;
+      padding: 30px 25px;
+      border-radius: 12px;
+      flex: 1 1 350px;
+      max-width: 450px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .loan-info h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .loan-info ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .loan-info li {
+      margin-bottom: 12px;
+      padding-left: 24px;
+      position: relative;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .loan-info li::before {
+      content: '✔';
+      color: #00cc66;
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .loan-info img {
+      margin-top: 20px;
+      max-width: 80px;
+    }
+
+    .form-container {
+      background-color: #fefefe;
+      flex: 1 1 350px;
+      max-width: 420px;
+      margin: 0;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-container h2 {
+      background-color: #4aa8e2;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      margin: -25px -25px 25px -25px;
+      border-radius: 12px 12px 0 0;
+      font-size: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .form-row input {
+      flex: 1 1 48%;
+    }
+
+    .checkbox {
+      font-size: 13px;
+      color: #333;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    .checkbox a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    .submit-btn {
+      background-color: #4aa8e2;
+      color: white;
+      border: none;
+      padding: 14px;
+      width: 100%;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #3b90c7;
+    }
+
+    .footer {
+      text-align: center;
+      color: #00263a;
+      background-color: #f6f6f6;
+      padding: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .main-section {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 10px;
+      }
+
+      .loan-info, .form-container {
+        max-width: 100%;
+      }
+
+      .form-row input {
+        flex: 1 1 100%;
+      }
+
+      .logo {
+        font-size: 22px;
+      }
+
+      .menu-icon {
+        font-size: 24px;
+      }
+    }
+    .info-section {
+  background-color: #f5f5f5;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.info-section h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.info-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.info-box {
+  background: white;
+  border-radius: 10px;
+  padding: 30px 20px;
+  max-width: 300px;
+  flex: 1 1 250px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.info-box img {
+  width: 60px;
+  margin-bottom: 20px;
+}
+
+.info-box h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #222;
+}
+
+.info-box p {
+  font-size: 14px;
+  color: #444;
+}
+
+.info-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  text-align: left;
+  padding: 0 20px;
+}
+
+.info-bottom .left,
+.info-bottom .right {
+  flex: 1 1 400px;
+  max-width: 600px;
+}
+
+.info-bottom h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.info-bottom p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+.disclosure-section {
+  background-color: #0e5e8e;
+  color: white;
+  padding: 40px 20px;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.disclosure-section a {
+  color: #d1ecf9;
+  text-decoration: underline;
+}
+
+.disclosure-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.disclosure-section strong {
+  color: #ffffff;
+}
+
+.disclosure-section p {
+  margin-bottom: 20px;
+}
+
+.disclosure-section .copyright {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: white;
+}
+/* Row centers its content */
+.btn-row{
+  display: flex;
+  justify-content: center;
+}
+
+/* Link styled like a button */
+.cash-btn{
+  display: inline-block;       /* keeps it sized to its content */
+  background: #3498db;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background .3s ease;
+  float: none;                 /* override any floats */
+}
+
+.cash-btn:hover{ background:white; }
+.cash-btn{ max-width: 320px; width: 100%; text-align: center; }
+
+
+
+
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="logo">
+      <span>Eazy Loan</span> <span>Today</span>
+    </div>
+    <button class="menu-icon" onclick="toggleMenu()">☰</button>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#">Home</a>
+      <a href="#">Apply</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+
+  <div class="main-section">
+    <div class="loan-info">
+      <h2>Apply now for a Personal<br>Loan 100% Online & Secured!</h2>
+      <ul>
+        <li>Online Portals for Personal Loans</li>
+        <li>Cash in Account Within 48 Hours</li>
+        <li>Quick Online Approval</li>
+        <li>Simple and Secure Application</li>
+        <li>100% Secure & Private</li>
+      </ul>
+      <img src="https://cdn-icons-png.flaticon.com/512/554/554857.png" alt="Person Icon" />
+    </div>
+
+    <div class="form-container">
+      <h2>Get Started Today!</h2>
+      
+  <!-- ✅ The form starts here -->
+  <form method="POST" action="/submit">
+
+    <div class="form-row">
+      <input type="text" name="firstName" placeholder="First Name" required>
+      <input type="text" name="lastName" placeholder="Last Name" required>
+    </div>
+
+    <input type="text" name="address" placeholder="Address" required>
+
+    <div class="form-row">
+      <input type="text" name="homePhone" placeholder="Home Phone" required>
+      <input type="text" name="zipCode" placeholder="Zip Code" required>
+    </div>
+
+    <input type="email" name="email" placeholder="Email" required>
+
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" name="consent" required>
+        You acknowledge you have read & agree to the terms of our
+        <a href="#">Privacy Policy</a>,
+        <a href="#">Terms & Conditions of Use</a>, and Marketing Practices.
+      </label>
+    
+
+<div class="btn-row">
+  <button type="submit" class="cash-btn">CLICK FOR CASH</button>
+</div>
+
+
+
+
+  </form>
+  <!-- ✅ The form ends here -->
+</div>
+
+
+      
+    </div>
+  </div>
+
+  <div class="footer">
+   ✅ HASSLE FREE QUICK PROCESSING &nbsp; ✅ &nbsp;
+    SKIP DRIVING AND LONG LINES IN THE STORES
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+
+    document.addEventListener("click", function (e) {
+      const menu = document.getElementById("mobileMenu");
+      const button = document.querySelector(".menu-icon");
+      if (!menu.contains(e.target) && !button.contains(e.target)) {
+        menu.style.display = "none";
+      }
+    });
+    
+  document.querySelector("form").addEventListener("submit", function(event) {
+    event.preventDefault(); // stop normal form action
+
+    // Check if form is valid
+    if (this.checkValidity()) {
+      // ✅ Redirect only if form is valid
+      window.location.href = "Second.html";
+    } else {
+      // ❌ Show validation errors
+      this.reportValidity();
+    }
+  });
+
+
+  </script>
+<section class="info-section">
+  <h2>How Online Cash Loans Work</h2>
+  <div class="info-boxes">
+    <div class="info-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" alt="Secure Icon" />
+      <h3>Safe & Secure Application</h3>
+      <p>You can be sure, Your information will remain safe, Secure and Confidential.</p>
+    </div>
+    <div class="info-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Bad Credit Icon" />
+      <h3>Bad Credit OK</h3>
+      <p>You don't have to pay any fees to apply online. You can apply even if you have bad credit.</p>
+    </div>
+    <div class="info-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/2645/2645897.png" alt="Get Started Icon" />
+      <h3>Get Started NOW!!</h3>
+      <p>Have your cash deposited in your account within 24 hours.</p>
+    </div>
+  </div>
+
+  <div class="info-bottom">
+    <div class="left">
+      <h3>Short on cash? Caught between paychecks?</h3>
+      <p>
+        fundmecredit.com is hands down the fastest way to obtain your money online. Fill up 2 steps quick and easy form and obtain loan up to $1000. Many cases there are no documents to fax depending on the lender that accepts your request.
+      </p>
+    </div>
+    <div class="right">
+      <h3>We Do Our Best To Find A Participating</h3>
+      <p>
+        We will place you with one of several loan providers depending on the information you submit on this website. Not all lenders can provide up to $1000. Cash transfer time may vary between lenders.
+      </p>
+    </div>
+  </div>
+</section>
+<section class="disclosure-section">
+  <div class="disclosure-content">
+   <p><a href="#">Material Disclosure</a>. This website is not a lender and does not make loan or credit decisions. We are a promotional and advertising service connecting consumers with third-party lenders, credit score providers, and financial service providers. We do not charge you for our service and do not endorse or charge you for any service or product that you may be offered by third-party providers. The APR on loans ranges from 5.99% to 35.99% depending on the lender, your credit score, state of residence, and other factors. Loan terms range from 3 to 72 months. Example: A $5,000 loan with a 24-month term at 19.99% APR would have monthly payments of $258.33. Some lenders may perform credit checks with credit reporting bureaus or obtain consumer reports through alternative providers. Late or missed loan payments may be subject to increased fees and interest rates.
+The credit score and credit builder offers on this website are from companies from which we receive compensation. This compensation may impact how and where products appear on this site (including the order in which they appear). Not all credit score services or credit monitoring services are available through this website. We do not guarantee improvement in credit scores or history. Credit improvement depends on multiple factors including your payment history and credit utilization.</p>
+    <br>  <p><a href="#">Exclusions</a>. State restrictions apply. This service is not available in all states. Residents of certain states may not be eligible for all products or services promoted on this website due to state-specific regulations regarding credit services, loan offers, and credit builder products.
+
+By submitting information on this website, you consent to having your information shared with our network of marketing partners and service providers who may contact you by phone, email, or SMS/text message at the number you provided, even if that number is on a corporate, state, or national Do Not Call Registry. Standard message and data rates may apply. You are not required to provide this consent as a condition of purchasing any property, goods, or services.
+
+</p>
+     <br> <p><a href="#">Professional Advice</a>. By submitting information on this website, you consent to having your information shared with our network of marketing partners and service providers who may contact you by phone, email, or SMS/text message at the number you provided, even if that number is on a corporate, state, or national Do Not Call Registry. Standard message and data rates may apply. You are not required to provide this consent as a condition of purchasing any property, goods, or services.</p>
+     
+    <p class="copyright">
+      © 2025 Eazyloantoday.com ALL Rights Reserved. 
+      <a href="#">Privacy Policy</a> | 
+      <a href="#">Terms of Service</a> | 
+      <a href="#">Unsubscribe</a>
+    </p>
+  </div>
+</section>
+
+</body>
+</html>
+
